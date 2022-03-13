@@ -5,19 +5,15 @@ class TaskManager {
   }
 
   addTask(name, description, assignedTo, dueDate, status = "TODO") {
-   
-   
     const taskObj = {
-      
       id: this.currentId++,
-
       name: name,
       description: description,
       assignedTo: assignedTo,
       dueDate: dueDate,
       status: status,
     };
-  
+
     this.tasks.push(taskObj);
 
     console.log(this.tasks);
@@ -26,8 +22,8 @@ class TaskManager {
 
 const newTask = new TaskManager();
 newTask.addTask("study", "finalproject", "val", "Sunday");
-console.log(newTask)
+ console.log(newTask);
 
-const newTask2 = new TaskManager();
-newTask2.addTask("study", "finalproject", "hema", "Sunday");
-console.log(newTask2)
+
+newTask.addTask("study", "finalproject", "hema", "Sunday");
+
