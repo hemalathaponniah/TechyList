@@ -20,10 +20,11 @@ class TaskManager {
   }
 }
 
-const newTask = new TaskManager();
-newTask.addTask("study", "finalproject", "val", "Sunday");
- console.log(newTask);
+// const newTask = new TaskManager();
+// newTask.addTask("study", "finalproject", "val", "Sunday");
+//  console.log(newTask);
 
 
-newTask.addTask("study", "finalproject", "hema", "Sunday");
+// newTask.addTask("study", "finalproject", "hema", "Sunday");
+
 
