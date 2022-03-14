@@ -18,6 +18,17 @@ class TaskManager {
 
     console.log(this.tasks);
   }
+
+
+  //render method
+  //Create a variable storing an empty array to hold the HTML of all the tasks' html, tasksHtmlList.
+  //loop over this.tasks with a for loop (need to access current index of array i )
+  //set current task in loop to a variable this.tasks[i]
+  //create a date var
+  //format date turn it into a string
+  //const taskhtml = createTaskHtml(currentTask.name, and formattedDate, status)
+  //taskHtmllist.push(taskHtml) end for loop
+  //
 }
 
 // const newTask = new TaskManager();
