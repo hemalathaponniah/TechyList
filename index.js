@@ -1,36 +1,30 @@
 const task = document.getElementById("submitButton");
-
-
-
+const taskManager = new TaskManager();
 
 task.addEventListener("click", validFormFieldInput);
 
-
-
-
-
-function validFormFieldInput(data) {
-
-  event.preventDefault()
+function validFormFieldInput(event) {
+  event.preventDefault();
   const taskName = document.querySelector("#taskName");
   const name1 = taskName.value;
-  console.log("Task Name: ", name1);
+  // console.log("Task Name: ", name1);
 
   const description = document.querySelector("#description");
   const name2 = description.value;
-  console.log("Task Description: ", name2);
+  // console.log("Task Description: ", name2);
 
   const assignedTo = document.querySelector("#assignedTo");
   const name3 = assignedTo.value;
-  console.log("Assigned To: ", name3);
+  // console.log("Assigned To: ", name3);
 
   const date = document.querySelector("#date");
   const name4 = date.value;
-  console.log("Due Date: ", name4);
+  // console.log("Due Date: ", name4);
 
   // validation fails if the input is blank
   if (taskName.value == "") {
-    alert("Task name cannot be empty!");
+     alert("Task name cannot be empty!");
+ 
     taskName.focus();
     return false;
   }
@@ -78,4 +72,11 @@ function validFormFieldInput(data) {
     date.focus();
     return false;
   }
+
+  taskManager.addTask(name1,name2,name3,name4);
+  console.log(taskManager);
+  taskName.value = "";
+  description.value = "";
+  assignedTo.value = "";
+  date.value = "";
 }
