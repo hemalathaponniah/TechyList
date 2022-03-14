@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const task = document.getElementById("submitButton" );
 task.addEventListener("click",validFormFieldInput);
 function validFormFieldInput(data) {
@@ -68,3 +69,6 @@ function validFormFieldInput(data) {
     return false;
   }
 }
+=======
+
+>>>>>>> c63f514993ec2ed771e07c769b84e5857d4a0719
