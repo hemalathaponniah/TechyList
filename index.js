@@ -76,6 +76,7 @@ function validFormFieldInput(event) {
 
   taskManager.addTask(name1,name2,name3,name4);
   taskManager.render();
+
   console.log(taskManager);
   taskName.value = "";
   description.value = "";
