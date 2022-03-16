@@ -1,3 +1,4 @@
+
 const task = document.getElementById("submitButton");
 const taskManager = new TaskManager();
 
@@ -80,4 +81,5 @@ function validFormFieldInput(event) {
   assignedTo.value = "";
   date.value = "";
 }
+
 
