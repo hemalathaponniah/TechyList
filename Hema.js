@@ -34,3 +34,5 @@ function markAsDone(){
   document.getElementById("status").innerHTML=markAsDone;
   document.getElementById("status").style.color="green";
 }
+const date = '2022-03-15';
+date.toString();

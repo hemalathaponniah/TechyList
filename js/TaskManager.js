@@ -1,23 +1,3 @@
-const createTaskHtml = (name, description, assignedTo, dueDate, Status) => {
- return `
-             <h4 class="card-title">Task Schedule</h4>
-             <ul id ="display">
-             <li id ="p2">${name}</li>
-             <li id ="p3">${description}</li>
-             <li id ="p1">${assignedTo}</li>
-             <li id ="p4">${dueDate}</li>
-             <li id ="p5">${Status}</li>
-             <a class="btn btn-primary" href="Work-in-Progress.html" role="button" id ="button2">Work In Progress</a>
-             <button id ="button1" class="btn btn-primary" type="submit">Mark As Done</button>
-         </div>
-         `; 
-     //return `${name}, ${description}, ${assignedTo}, ${dueDate}, ${Status}`;
-      console.log(taskHtml);    
- }
- //createTaskHtml('h','hd', 'a', '01-mar-22', 's');
- 
-
-
 class TaskManager {
   constructor(currentId = 0) {
     this.tasks = [];
@@ -39,25 +19,42 @@ class TaskManager {
     console.log(this.tasks);
   }
   render() {
-    const taskHtmlList = [];
-    taskHtmlList.forEach(this.tasks => {
-        // Store the current task in a variable - What should I do?
-        const date = new Date(dueDate);
-        const formattedDate = date.toString();
-        console.log(formattedDate); 
-        const taskHtml = createTaskHtml(formattedDate)        
-        taskHtmlList.push(taskHtml);
-    }); 
-const taskHtml1 = taskHtmlList.join('\n');
-document.getElementById("display").innerHTML = taskHtml1;
+    const tasksHtmlList = [];
+    for (let i =0; i<this.tasks; i++){
+      const currentTask = this.tasks[i];
+      const date = new Date(this.dueDate);
+      const formattedDate = date.toString();
+      const taskHtml = createTaskHtml(currentTask.name, currentTask.description, currentTask.assignedTo,  currentTask.status, formattedDate);
+      tasksHtmlList.push(taskHtml);
+      
+    
   }
+  const getval = document.getElementById("listelement")
+  const taskHtml1 = tasksHtmlList.join('\n');
+  getval.innerHtml =taskHtml1;
+//console.log(currentTask[i]);
 }
 
-// const newTask = new TaskManager();
-// newTask.addTask("study", "finalproject", "val", "Sunday");
-//  console.log(newTask);
-
+ const newTask = new TaskManager();
+ newTask.addTask("study", "finalproject", "val", "Sunday");
+  console.log(newTask);
+newTask.render();
 
 // newTask.addTask("study", "finalproject", "hema", "Sunday");
-
-
+const createTaskHtml = (name, description, assignedTo, dueDate, Status) => {
+  const taskHtml = `
+               <h4 class="card-title">Task Schedule</h4>
+               <ul id ="listelement">
+               <li class ="display">${name}</li>
+               <li class ="display">${description}</li>
+               <li class ="display">${assignedTo}</li>
+               <li class ="display">${dueDate}</li>
+               <li class ="display">${Status}</li>
+               <a class="btn btn-primary" href="Work-in-Progress.html" role="button" id ="button2">Work In Progress</a>
+               <button id ="button1" class="btn btn-primary" type="submit">Mark As Done</button>
+           </div>
+           `; 
+       //return `${name}, ${description}, ${assignedTo}, ${dueDate}, ${Status}`;
+       console.log(taskHtml);  
+   }
+    createTaskHtml();
