@@ -1,3 +1,21 @@
+const createTaskHtml = (name, description, assignedTo, dueDate, Status) => {
+  const taskHtml = `
+               <h4 class="card-title">Task Schedule</h4>
+               <ul id ="listelement">
+               <li class ="display">${name}</li>
+               <li class ="display">${description}</li>
+               <li class ="display">${assignedTo}</li>
+               <li class ="display">${dueDate}</li>
+               <li class ="display">${Status}</li>
+               <a class="btn btn-primary" href="Work-in-Progress.html" role="button" id ="button2">Work In Progress</a>
+               <button id ="button1" class="btn btn-primary" type="submit">Mark As Done</button>
+           </div>
+           `;
+  //return `${name}, ${description}, ${assignedTo}, ${dueDate}, ${Status}`;
+  console.log(taskHtml);
+};
+//  createTaskHtml();
+
 class TaskManager {
   constructor(currentId = 0) {
     this.tasks = [];
@@ -18,24 +36,26 @@ class TaskManager {
 
     console.log(this.tasks);
   }
-
-
-  //render method
-  //Create a variable storing an empty array to hold the HTML of all the tasks' html, tasksHtmlList.
-  //loop over this.tasks with a for loop (need to access current index of array i )
-  //set current task in loop to a variable this.tasks[i]
-  //create a date var
-  //format date turn it into a string
-  //const taskhtml = createTaskHtml(currentTask.name, and formattedDate, status)
-  //taskHtmllist.push(taskHtml) end for loop
-  //
+  render() {
+    const tasksHtmlList = [];
+    for (let i = 0; i < this.tasks; i++) {
+      const currentTask = this.tasks[i];
+      const date = new Date(this.dueDate);
+      const formattedDate = date.toString();
+      const taskHtml = createTaskHtml(
+        currentTask.name,
+        currentTask.description,
+        currentTask.assignedTo,
+        currentTask.status,
+        formattedDate
+      );
+      tasksHtmlList.push(taskHtml);
+    }
+    const getval = document.getElementById("listelement");
+    const taskHtml1 = tasksHtmlList.join("\n");
+    getval.innerHtml = taskHtml1;
+    //console.log(currentTask[i]);
+  }
 }
-
-// const newTask = new TaskManager();
-// newTask.addTask("study", "finalproject", "val", "Sunday");
-//  console.log(newTask);
-
-
-// newTask.addTask("study", "finalproject", "hema", "Sunday");
 
 
