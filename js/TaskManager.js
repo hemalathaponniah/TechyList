@@ -1,13 +1,13 @@
 
 const createTaskHtml = (name, description, assignedTo, dueDate, Status) => {
   const taskHtml = `
-               <h4 class="card-title">Task Schedule</h4>
+               <h4 class="card-title">Task Schedule for ${name}</h4>
                <ul id ="listelement">
-               <li class ="display">${name}</li>
-               <li class ="display">${description}</li>
-               <li class ="display">${assignedTo}</li>
-               <li class ="display">${dueDate}</li>
-               <li class ="display">${Status}</li>
+               <li class ="name1">${name}</li>
+               <li class ="desc">${description}</li>
+               <li class ="assign">${assignedTo}</li>
+               <li class ="date1">${dueDate}</li>
+               <li class ="stat">${Status}</li>
                <a class="btn btn-primary" href="Work-in-Progress.html" role="button" id ="button2">Work In Progress</a>
                <button id ="button1" class="btn btn-primary" type="submit">Mark As Done</button>
            </div>
@@ -41,27 +41,31 @@ class TaskManager {
     const tasksHtmlList = [];
     for (let i =0; i<this.tasks; i++){
       const currentTask = this.tasks[i];
-      const date = new Date(this.dueDate);
-      const formattedDate = date.toString();
-      const taskHtml = createTaskHtml(currentTask.name, currentTask.description, currentTask.assignedTo,  currentTask.status, formattedDate);
-      tasksHtmlList.push(taskHtml);
+              
+      const taskHtml2 = createTaskHtml(currentTask.name, currentTask.description, currentTask.assignedTo,  currentTask.status, formattedDate);
+      tasksHtmlList.push(taskHtml2[i]);
+      console.log(tasksHtmlList[i]);
+      const date = new Date(userDate);
+      const formattedDate = date.toGMTString();
       
     
   }
-  const getval = document.getElementById("listelement")
+  
+  console.log(tasksHtmlList);
+  const getval = document.getElementById("listelement").value;
+  const userDate = document.getElementById("date1").value;
   const taskHtml1 = tasksHtmlList.join('\n');
   getval.innerHtml =taskHtml1;
-//console.log(currentTask[i]);
+//console.log(currentTask[i]); */
+
+
+}
 }
 
  
-
-
-
 // const newTask = new TaskManager();
 // newTask.addTask("study", "finalproject", "val", "Sunday");
 //  console.log(newTask);
 
 
 // newTask.addTask("study", "finalproject", "hema", "Sunday");
-
