@@ -8,8 +8,7 @@ const createTaskHtml = (name, description, assignedTo, dueDate, Status) => {
                <li class ="display">${dueDate}</li>
                <li class ="display">${Status}</li>
                <button type="button" class="btn-sm btn-success">Mark as Done</button>
-             
-           
+
            `;
   //return `${name}, ${description}, ${assignedTo}, ${dueDate}, ${Status}`;
   return taskHtml;
@@ -41,16 +40,24 @@ class TaskManager {
 
     for (let i = 0; i < this.tasks.length; i++) {
       const currentTask = this.tasks[i];
-      const date = new Date(this.dueDate);
+
+      const date = new Date(currentTask.dueDate);
       console.log(date);
-      const formattedDate = date.toDateString();
+      const formattedDate = date.toString();
+
+      
+
       console.log(formattedDate);
       const taskHtmlS = createTaskHtml(
         currentTask.name,
         currentTask.description,
         currentTask.assignedTo,
+
+        formattedDate, currentTask.status
+
         currentTask.status,
         formattedDate
+
       );
       tasksHtmlList.push(taskHtmlS);
 
@@ -64,3 +71,4 @@ class TaskManager {
     console.log(taskHtml1);
   }
 }
+

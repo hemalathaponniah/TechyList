@@ -74,8 +74,9 @@ function validFormFieldInput(event) {
     return false;
   }
 
-  taskManager.addTask(name1, name2, name3, name4);
-  taskManager.render()
+  taskManager.addTask(name1,name2,name3,name4);
+  taskManager.render();
+
   console.log(taskManager);
   taskName.value = "";
   description.value = "";
@@ -83,4 +84,5 @@ function validFormFieldInput(event) {
   date.value = "";
 }
 task.addEventListener("click", validFormFieldInput);
+
 
