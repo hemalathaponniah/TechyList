@@ -80,3 +80,4 @@ function validFormFieldInput(event) {
   assignedTo.value = "";
   date.value = "";
 }
+
