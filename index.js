@@ -1,93 +1,83 @@
-//Valentina's task 5 code
+const task = document.getElementById("submitButton");
+const taskManager = new TaskManager();
 
-class TaskManager {
-    constructor(currentId = 0) {
-      this.tasks = [];
-      this.currentId = currentId;
-    }
-  
-    addTask(name, description, assignedTo, dueDate, status = "TODO") {
-  
-  
-      const taskObj = {
-  
-        id: this.currentId++,
-  
-        name: name,
-        description: description,
-        assignedTo: assignedTo,
-        dueDate: dueDate,
-        status: status,
-      };
-    
-  
-      this.tasks.push(taskObj);
-  
-      console.log(this.tasks);
-    }
-    render() {
-      const taskHtmlList = [];
-      taskHtmlList.forEach(this.tasks => {
-          // Store the current task in a variable - What should I do?
-          const date = new Date(dueDate);
-          const formattedDate = date.toString();
-          console.log(formattedDate); 
-          const taskHtml = createTaskHtml(formattedDate)        
-          taskHtmlList.push(taskHtml);
-      }); 
-  const taskHtml1 = taskHtmlList.join('\n');
-  document.getElementById("display").innerHTML = taskHtml1;
-       
-    }
-    
-  }
-  
-  const newTask = new TaskManager();
-  newTask.addTask("study", "finalproject", "val", "Sunday");
-  console.log(newTask)
-   console.log(newTask);
-  
-  
-  newTask.addTask("study", "finalproject", "hema", "Sunday");
-  
-  const newTask2 = new TaskManager();
-  newTask2.addTask("study", "finalproject", "hema", "Sunday");
-  console.log(newTask2); 
-  
-  
-  
-  const createTaskHtml = (name, description, assignedTo, dueDate, Status) => {
-   return `
-              <h4 class="card-title">Task Schedule</h4>
-              <ul id ="display">
-              <li id ="p2">${name}</li>
-              <li id ="p3">${description}</li>
-              <li id ="p1">${assignedTo}</li>
-              <li id ="p4">${dueDate}</li>
-              <li id ="p5">${Status}</li>
-              <a class="btn btn-primary" href="Work-in-Progress.html" role="button" id ="button2">Work In Progress</a>
-              <button id ="button1" class="btn btn-primary" type="submit">Mark As Done</button>
-          </div>
-          `; 
-      //return `${name}, ${description}, ${assignedTo}, ${dueDate}, ${Status}`;
-       console.log(taskHtml);    
-  }
-  createTaskHtml('h','hd', 'a', '01-mar-22', 's');
-  
-  
-  
-  
-  
-  
-  
-  
-  //current date
-  //let today = new Date().toLocaleDateString();
-  
-  //console.log(today);
-  
-  
+task.addEventListener("click", validFormFieldInput);
+
+function validFormFieldInput(event) {
+  event.preventDefault();
+  const taskName = document.querySelector("#taskName");
+  const name1 = taskName.value;
+  // console.log("Task Name: ", name1);
+
+  const description = document.querySelector("#description");
+  const name2 = description.value;
+  // console.log("Task Description: ", name2);
+
+  const assignedTo = document.querySelector("#assignedTo");
+  const name3 = assignedTo.value;
+  // console.log("Assigned To: ", name3);
+
+  const date = document.querySelector("#date");
+  const name4 = date.value;
+  // console.log("Due Date: ", name4);
+
+  // validation fails if the input is blank
+  if (taskName.value == "") {
+     alert("Task name cannot be empty!");
  
-  
-  
-  
+    taskName.focus();
+    return false;
+  }
+
+  // regular expression to match only alphanumeric characters and spaces
+  const re = /^[a-zA-Z ]+$/;
+
+  // validation fails if the input doesn't match our regular expression
+  if (!re.test(taskName.value)) {
+    alert("Error: Input contains invalid characters!");
+    taskName.focus();
+    return false;
+  }
+
+  // validation fails if the input is blank
+  if (description.value == "") {
+    alert("Description can not be empty!");
+    description.focus();
+    return false;
+  }
+
+  // validation fails if the input doesn't match our regular expression
+  if (!re.test(description.value)) {
+    alert("Error: Input contains invalid characters!");
+    description.focus();
+    return false;
+  }
+
+  // validation fails if the input is blank
+  if (assignedTo.value == "") {
+    alert("AssignedTo can not be empty!");
+    assignedTo.focus();
+    return false;
+  }
+
+  // validation fails if the input doesn't match our regular expression
+  if (!re.test(assignedTo.value)) {
+    alert("Error: Input contains invalid characters!");
+    assignedTo.focus();
+    return false;
+  }
+
+  if (date.value == "") {
+    alert("Due date can not be empty!");
+    date.focus();
+    return false;
+  }
+
+  taskManager.addTask(name1,name2,name3,name4);
+  console.log(taskManager);
+  taskName.value = "";
+  description.value = "";
+  assignedTo.value = "";
+  date.value = "";
+}
+
