@@ -1,8 +1,5 @@
-
 const task = document.getElementById("submitButton");
 const taskManager = new TaskManager();
-
-
 
 function validFormFieldInput(event) {
   event.preventDefault();
@@ -74,8 +71,9 @@ function validFormFieldInput(event) {
     return false;
   }
 
-  taskManager.addTask(name1,name2,name3,name4);
+  taskManager.addTask(name1, name2, name3, name4);
   taskManager.render();
+  taskManager.getTaskById();
 
   console.log(taskManager);
   taskName.value = "";
@@ -84,5 +82,25 @@ function validFormFieldInput(event) {
   date.value = "";
 }
 task.addEventListener("click", validFormFieldInput);
+
+const taskList = document.getElementById("tasksList");
+
+taskList.addEventListener("click", (event) => {
+
+  
+  
+  if (event.target.classList.contains("done-button")) {
+    const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+    console.log(parentTask);
+    const idofTask = document.getElementById("idoftask");
+    const taskId = idofTask.dataset.taskId;
+    console.log(taskId);
+    const task = taskManager.getTaskById(taskId);
+    console.log(task);
+    task.status = "DONE";
+    taskManager.render();
+  }
+});
 
 
