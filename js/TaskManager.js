@@ -65,7 +65,7 @@ class TaskManager {
 
     const getval = document.getElementById("tasksList");
     const taskHtml1 = tasksHtmlList.join("\n");
-    getval.innerHTML = taskHtml1;
+    getval.innerHTML= taskHtml1;
   }
 
   getTaskById(taskId) {

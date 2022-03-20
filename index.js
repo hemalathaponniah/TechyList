@@ -83,18 +83,14 @@ function validFormFieldInput(event) {
 }
 task.addEventListener("click", validFormFieldInput);
 
-const taskList = document.getElementById("tasksList");
+const taskList = document.querySelector("#tasksList");
 
-taskList.addEventListener("click", (event) => {
-
-  
-  
+taskList.addEventListener("click", function (event) {
   if (event.target.classList.contains("done-button")) {
-    const parentTask =
-      event.target.parentElement.parentElement.parentElement.parentElement;
+    const parentTask = event.target.parentElement.parentElement;
     console.log(parentTask);
-    const idofTask = document.getElementById("idoftask");
-    const taskId = idofTask.dataset.taskId;
+
+    const taskId = Number(parentTask.dataset.taskId);
     console.log(taskId);
     const task = taskManager.getTaskById(taskId);
     console.log(task);
@@ -103,4 +99,5 @@ taskList.addEventListener("click", (event) => {
   }
 });
 
-
+// }
+// taskList.addEventListener('click', markasDone)
