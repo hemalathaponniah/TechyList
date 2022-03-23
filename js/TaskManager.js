@@ -39,7 +39,30 @@ class TaskManager {
 
     this.tasks.push(taskObj);
   }
+ save(){
+  const tasksJson = JSON.stringify(this.tasks);
+  localStorage.setItem('tasks',tasksJson);
+  const currentId = JSON.stringify(this.currentId);
+  localStorage.setItem('currentId', currentId);
 
+  //localStorage.setItem('tasks', JSON.stringify(tasksJson));
+  //localStorage.setItem('currentId', JSON.stringify(currentId));
+ }
+ load(){
+  if (localStorage.getItem('tasks') !== null && localStorage.getItem('currentId') !==null ) {
+    const tasksJson = localStorage.getItem('tasks');
+    this.tasks =JSON.parse(tasksJson);
+    const currentId = localStorage.getItem('currentId');
+  this.currentId = Number(currentId);
+}
+} //if (localStorage.getItem('currentId') !==null ){
+ // const currentId = localStorage.getItem('currentId');
+  //this.currentId = Number(currentId);
+//} //else {
+ // console.log("localstorage is empty");
+//}
+ //}
+  
   render() {
     const tasksHtmlList = [];
 
