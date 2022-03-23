@@ -11,7 +11,8 @@ const createTaskHtml = (id,name, description, assignedTo, dueDate, status) => {
               <p class="fw-light">Due Date: ${dueDate}</p>
               <p class="fw-bold">Status: ${status}</p>
               <button type="button" class="btn-sm btn btn-success done-button">Mark as Done</button>
-              
+              <button type="button" class="btn-sm btn btn-danger delete-button">Delete</button>
+
               </div>
             </div>
             </div>
@@ -102,5 +103,15 @@ class TaskManager {
       }
     }
     return foundTask;
+  }
+  deleteTask(taskId) {
+    const newTasks = [];
+    for (var i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+      if (task.id !== taskId) {
+        newTasks.push(task);  
+      }
+    }
+    this.tasks = newTasks;
   }
 }
