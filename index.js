@@ -1,5 +1,7 @@
 const task = document.getElementById("submitButton");
 const taskManager = new TaskManager();
+taskManager.load();
+taskManager.render();
 
 function validFormFieldInput(event) {
   event.preventDefault();
@@ -72,12 +74,12 @@ function validFormFieldInput(event) {
   }
 
   taskManager.addTask(name1, name2, name3, name4);
-  taskManager.save();
-  taskManager.load();
-  taskManager.render();
-
   taskManager.getTaskById();
-
+  taskManager.render();
+  //taskManager.load();
+  taskManager.save();
+ 
+  
   console.log(taskManager);
   taskName.value = "";
   description.value = "";
