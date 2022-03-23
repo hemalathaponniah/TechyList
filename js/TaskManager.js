@@ -50,10 +50,12 @@ class TaskManager {
  }
  load(){
   if (localStorage.getItem('tasks') !== null && localStorage.getItem('currentId') !==null ) {
-    const tasksJson = localStorage.getItem('tasks');
-    this.tasks =JSON.parse(tasksJson);
+      const tasksJson = localStorage.getItem('tasks');
+     this.tasks =JSON.parse(tasksJson);
     const currentId = localStorage.getItem('currentId');
   this.currentId = Number(currentId);
+}else {
+  console.log("No Localstorage");
 }
 } //if (localStorage.getItem('currentId') !==null ){
  // const currentId = localStorage.getItem('currentId');
