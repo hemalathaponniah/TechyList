@@ -115,3 +115,13 @@ class TaskManager {
     this.tasks = newTasks;
   }
 }
+deleteTask(taskId) {
+  const newTasks = [];
+  for (var i = 0; i < this.tasks.length; i++) {
+    const task = this.tasks[i];
+    if (task.id !== taskId) {
+      newTasks.push(task);  
+    }
+  }
+  this.tasks = newTasks;
+}
