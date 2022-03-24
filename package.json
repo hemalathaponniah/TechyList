@@ -1,7 +1,7 @@
 {
   "name": "techylist",
   "version": "1.0.0",
-  "description": "Created a new repo called TechyList\r We had a problem in merging the files that our group created.\r We created an app called TechyList-What is this about\r Scrum Master assigns the task to the group.\r The team member gets to work on the assigned work and completes the task with in the due date by clicking-Mark as Done\r If for any reason like code dependency or need clarification within the task, the user have the option to put the task as work in progress.",
+  "description": "Todo List App",
   "main": "index.js",
   "directories": {
     "test": "test"
