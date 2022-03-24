@@ -1,4 +1,6 @@
-const createTaskHtml = (id,name, description, assignedTo, dueDate, status) => {
+
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
+
   const taskHtml = `
             <div class="pt-2">
               <div class="card" id="idoftask" data-task-id = ${id} >
@@ -103,14 +105,15 @@ class TaskManager {
     }
     return foundTask;
   }
-}
-deleteTask(taskId) {
-  const newTasks = [];
-  for (var i = 0; i < this.tasks.length; i++) {
-    const task = this.tasks[i];
-    if (task.id !== taskId) {
-      newTasks.push(task);  
+  deleteTask(taskId) {
+    const newTasks = [];
+    for (var i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+      if (task.id !== taskId) {
+        newTasks.push(task);  
+      }
     }
-  }
-  this.tasks = newTasks;
+    this.tasks = newTasks;
+  } 
 }
+exports.TaskManager = TaskManager
