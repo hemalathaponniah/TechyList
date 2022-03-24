@@ -1,4 +1,4 @@
-const createTaskHtml = (id,name, description, assignedTo, dueDate, status) => {
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const taskHtml = `
             <div class="pt-2">
               <div class="card" id="idoftask" data-task-id = ${id} >
@@ -40,32 +40,35 @@ class TaskManager {
 
     this.tasks.push(taskObj);
   }
- save(){
-  const tasksJson = JSON.stringify(this.tasks);
-  localStorage.setItem('tasks',tasksJson);
-  const currentId = JSON.stringify(this.currentId);
-  localStorage.setItem('currentId', currentId);
+  save() {
+    const tasksJson = JSON.stringify(this.tasks);
+    localStorage.setItem("tasks", tasksJson);
+    const currentId = JSON.stringify(this.currentId);
+    localStorage.setItem("currentId", currentId);
 
-  //localStorage.setItem('tasks', JSON.stringify(tasksJson));
-  //localStorage.setItem('currentId', JSON.stringify(currentId));
- }
- load(){
-  if (localStorage.getItem('tasks') !== null && localStorage.getItem('currentId') !==null ) {
-      const tasksJson = localStorage.getItem('tasks');
-     this.tasks =JSON.parse(tasksJson);
-    const currentId = localStorage.getItem('currentId');
-  this.currentId = Number(currentId);
-}else {
-  console.log("No Localstorage");
-}
-} //if (localStorage.getItem('currentId') !==null ){
- // const currentId = localStorage.getItem('currentId');
+    //localStorage.setItem('tasks', JSON.stringify(tasksJson));
+    //localStorage.setItem('currentId', JSON.stringify(currentId));
+  }
+  load() {
+    if (
+      localStorage.getItem("tasks") !== null &&
+      localStorage.getItem("currentId") !== null
+    ) {
+      const tasksJson = localStorage.getItem("tasks");
+      this.tasks = JSON.parse(tasksJson);
+      const currentId = localStorage.getItem("currentId");
+      this.currentId = Number(currentId);
+    } else {
+      console.log("No Localstorage");
+    }
+  } //if (localStorage.getItem('currentId') !==null ){
+  // const currentId = localStorage.getItem('currentId');
   //this.currentId = Number(currentId);
-//} //else {
- // console.log("localstorage is empty");
-//}
- //}
-  
+  //} //else {
+  // console.log("localstorage is empty");
+  //}
+  //}
+
   render() {
     const tasksHtmlList = [];
 
@@ -83,15 +86,14 @@ class TaskManager {
         currentTask.description,
         currentTask.assignedTo,
         currentTask.dueDate,
-        currentTask.status,
-       
+        currentTask.status
       );
       tasksHtmlList.push(taskHtmlS);
     }
 
     const getval = document.getElementById("tasksList");
     const taskHtml1 = tasksHtmlList.join("\n");
-    getval.innerHTML= taskHtml1;
+    getval.innerHTML = taskHtml1;
   }
 
   getTaskById(taskId) {
@@ -102,26 +104,17 @@ class TaskManager {
         foundTask = task;
       }
     }
-    return foundTask;t
+    return foundTask;
+    t;
   }
   deleteTask(taskId) {
     const newTasks = [];
     for (var i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
       if (task.id !== taskId) {
-        newTasks.push(task);  
+        newTasks.push(task);
       }
     }
     this.tasks = newTasks;
   }
-}
-deleteTask(taskId) {
-  const newTasks = [];
-  for (var i = 0; i < this.tasks.length; i++) {
-    const task = this.tasks[i];
-    if (task.id !== taskId) {
-      newTasks.push(task);  
-    }
-  }
-  this.tasks = newTasks;
 }
