@@ -116,8 +116,8 @@ class TaskManager {
     }
     this.tasks = newTasks;
   }
-}
-<<<<<<< HEAD
+  
+  }
 
-=======
->>>>>>> a230b857754d57bb45815a192361ef82629011c7
+
+ 

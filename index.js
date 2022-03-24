@@ -120,5 +120,4 @@ taskList.addEventListener("click", function (event) {
   }
 });
 
-// }
-// taskList.addEventListener('click', markasDone)
+
