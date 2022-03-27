@@ -61,14 +61,7 @@ class TaskManager {
     } else {
       console.log("No Localstorage");
     }
-  } //if (localStorage.getItem('currentId') !==null ){
-  // const currentId = localStorage.getItem('currentId');
-  //this.currentId = Number(currentId);
-  //} //else {
-  // console.log("localstorage is empty");
-  //}
-  //}
-
+  } 
   render() {
     const tasksHtmlList = [];
 
@@ -116,8 +109,4 @@ class TaskManager {
     }
     this.tasks = newTasks;
   }
-  
-  }
-
-
- 
+}
