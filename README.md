@@ -1,7 +1,27 @@
 # TechyList
-Created a new repo called TechyList
-We had a problem in merging the files that our group created.
-We created an app called TechyList-What is this about
-Scrum Master assigns the task to the group.
-The team member gets to work on the assigned work and completes the task with in the due date by clicking-Mark as Done
-If for any reason like code dependency or need clarification within the task, the user have the option to put the task as work in progress.
+
+-[User Story](#user-story)
+
+-[Technologies Used](#technologies-used)
+
+-[Link to GitHub](#link-to-github)
+
+
+## User Story
+As a project Manager I would like to use 'To-Do App' to assign task to my team members.
+I want an application that can monitor and track the progress of the task performed by team members. 
+In addition to this feature, the team members can update the status of the task and also can delete the task when it is needed.
+I want the task to be saved to local storage, if the page is refreshed then  the task is still rendered on the browser.
+
+## Technologies Used
+
+1. JavaScript
+2. BootStrap
+3. Mocha
+4. CSS
+5. HTML
+6. Moqups
+
+## Link to Github
+
+https://github.com/hemalathaponniah/TechyList
