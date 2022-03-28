@@ -1,6 +1,4 @@
-
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
-
   const taskHtml = `
             <div class="pt-2">
               <div class="card" id="idoftask" data-task-id = ${id} >
@@ -63,14 +61,7 @@ class TaskManager {
     } else {
       console.log("No Localstorage");
     }
-  } //if (localStorage.getItem('currentId') !==null ){
-  // const currentId = localStorage.getItem('currentId');
-  //this.currentId = Number(currentId);
-  //} //else {
-  // console.log("localstorage is empty");
-  //}
-  //}
-
+  } 
   render() {
     const tasksHtmlList = [];
 
@@ -114,15 +105,16 @@ class TaskManager {
   deleteTask(taskId) {
     const newTasks = [];
     for (var i = 0; i < this.tasks.length; i++) {
-       const task = this.tasks[i];
-        if (task.id !== taskId) {
-        newTasks.push(task);  
-        
+      const task = this.tasks[i];
+      if (task.id !== taskId) {
+        newTasks.push(task);
       }
     }
     this.tasks = newTasks;
 
+
   } 
 }
 exports.TaskManager = TaskManager
+
 
