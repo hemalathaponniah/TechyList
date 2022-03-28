@@ -13,7 +13,8 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
               <p class="fw-light">Due Date: ${dueDate}</p>
               <p class="fw-bold">Status: ${status}</p>
               <button type="button" class="btn-sm btn btn-success done-button">Mark as Done</button>
-              
+              <button type="button" class="btn-sm btn btn-danger delete-button">Delete</button>
+
               </div>
             </div>
             </div>
@@ -41,32 +42,35 @@ class TaskManager {
 
     this.tasks.push(taskObj);
   }
- save(){
-  const tasksJson = JSON.stringify(this.tasks);
-  localStorage.setItem('tasks',tasksJson);
-  const currentId = JSON.stringify(this.currentId);
-  localStorage.setItem('currentId', currentId);
+  save() {
+    const tasksJson = JSON.stringify(this.tasks);
+    localStorage.setItem("tasks", tasksJson);
+    const currentId = JSON.stringify(this.currentId);
+    localStorage.setItem("currentId", currentId);
 
-  //localStorage.setItem('tasks', JSON.stringify(tasksJson));
-  //localStorage.setItem('currentId', JSON.stringify(currentId));
- }
- load(){
-  if (localStorage.getItem('tasks') !== null && localStorage.getItem('currentId') !==null ) {
-      const tasksJson = localStorage.getItem('tasks');
-     this.tasks =JSON.parse(tasksJson);
-    const currentId = localStorage.getItem('currentId');
-  this.currentId = Number(currentId);
-}else {
-  console.log("No Localstorage");
-}
-} //if (localStorage.getItem('currentId') !==null ){
- // const currentId = localStorage.getItem('currentId');
+    //localStorage.setItem('tasks', JSON.stringify(tasksJson));
+    //localStorage.setItem('currentId', JSON.stringify(currentId));
+  }
+  load() {
+    if (
+      localStorage.getItem("tasks") !== null &&
+      localStorage.getItem("currentId") !== null
+    ) {
+      const tasksJson = localStorage.getItem("tasks");
+      this.tasks = JSON.parse(tasksJson);
+      const currentId = localStorage.getItem("currentId");
+      this.currentId = Number(currentId);
+    } else {
+      console.log("No Localstorage");
+    }
+  } //if (localStorage.getItem('currentId') !==null ){
+  // const currentId = localStorage.getItem('currentId');
   //this.currentId = Number(currentId);
-//} //else {
- // console.log("localstorage is empty");
-//}
- //}
-  
+  //} //else {
+  // console.log("localstorage is empty");
+  //}
+  //}
+
   render() {
     const tasksHtmlList = [];
 
@@ -84,15 +88,14 @@ class TaskManager {
         currentTask.description,
         currentTask.assignedTo,
         currentTask.dueDate,
-        currentTask.status,
-       
+        currentTask.status
       );
       tasksHtmlList.push(taskHtmlS);
     }
 
     const getval = document.getElementById("tasksList");
     const taskHtml1 = tasksHtmlList.join("\n");
-    getval.innerHTML= taskHtml1;
+    getval.innerHTML = taskHtml1;
   }
 
   getTaskById(taskId) {
@@ -121,3 +124,5 @@ class TaskManager {
   } 
 }
 exports.TaskManager = TaskManager
+
+        
