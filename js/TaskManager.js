@@ -99,18 +99,22 @@ class TaskManager {
     let foundTask;
     for (var i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
+      console.log('task', task);
       if (task.id == taskId) {
-        foundTask = task;
+         foundTask = task;
+         console.log('found', foundTask);
       }
     }
+
     return foundTask;
   }
   deleteTask(taskId) {
     const newTasks = [];
     for (var i = 0; i < this.tasks.length; i++) {
-      const task = this.tasks[i];
-      if (task.id !== taskId) {
+       const task = this.tasks[i];
+        if (task.id !== taskId) {
         newTasks.push(task);  
+        
       }
     }
     this.tasks = newTasks;
